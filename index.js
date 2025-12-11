@@ -3,10 +3,6 @@ const cart = [
   { name: "Mouse", price: 50, quantity: 2 },
 ];
 
-function sumCart() {
-  let sum = 0;
-  sum = cart.reduce((acc, cur) => acc + cur.price, 0);
-  console.log("sum is:", sum);
-}
+const sumCart = () => cart.reduce((acc, cur) => acc + cur.price, 0);
 
-sumCart();
+console.log("cart sum is: ", sumCart());
