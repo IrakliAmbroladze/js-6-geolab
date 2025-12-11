@@ -5,9 +5,18 @@ const cart = [
 
 const sumCart = () => cart.reduce((acc, cur) => acc + cur.price, 0);
 const addProduct = (product) => [...cart, product];
+const updateQuantity = (productName, newQty) =>
+  cart.map((product) => {
+    const { name } = product;
+    if (name === productName) {
+      product = { ...product, quantity: newQty };
+    }
+    return product;
+  });
 
 console.log("cart sum is: ", sumCart());
 console.log(
-  "new cart is: ",
+  "cart with added product is:: ",
   addProduct({ name: "Monitor", price: 250, quantity: 3 }),
 );
+console.log("cart with updated product is: ", updateQuantity("Mouse", 8));
